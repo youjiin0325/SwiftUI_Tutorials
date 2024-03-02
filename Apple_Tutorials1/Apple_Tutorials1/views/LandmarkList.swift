@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+//Embed the dynamically generated list of landmarks in a NavigationSplitView.
+
+//The navigation split view takes a second input that’s a placeholder for the view that appears after someone makes a selection. On iPhone, the split view doesn’t need the placeholder, but on iPad the detail pane can be present before someone makes a selection, as you’ll see later in this tutorial.
 struct LandmarkList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationSplitView {
+            List(landMarks)  {landMark in
+                
+                //Inside the list’s closure, wrap the returned row in a NavigationLink, specifying the LandmarkDetail view as the destination.
+                NavigationLink{
+                    LandmarkDetail(landmark: landMark)
+                } label: {
+                    LandmarkRow(landMark: landMark)
+                }
+            }
+            .navigationTitle("Land Marks")
+            
+        }detail: {
+            Text("Select a LandMark")
+        }
     }
 }
 

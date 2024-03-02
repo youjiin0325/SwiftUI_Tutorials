@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation //Compute a locationCoordinate property that’s useful for interacting with the MapKit framework.
 
 //adding Codable conformance makes it easier to move data between the structure and a data file
-struct LandMark: Hashable, Codable{
+struct LandMark: Hashable, Codable, Identifiable{
     var id:Int
     var name: String
     var park:String
