@@ -31,8 +31,10 @@ struct LandmarkRow: View {
 //Give each preview a name to help distinguish between them.
 //Remove the second preview, and instead wrap the two versions of the row in a Group.
 
-#Preview ("Turtle Rock"){
-    Group{
+#Preview {
+    //Update the LandmarkRow preview to work with the ModelData object.
+    let landmarks = ModelData().landmarks
+    return  Group{
         LandmarkRow(landMark: landMarks[0])
         LandmarkRow(landMark: landMarks[1])
     }
