@@ -17,6 +17,17 @@ struct LandMark: Hashable, Codable, Identifiable{
     var state: String
     var description:String
     var isFavorite: Bool //Add an isFavorite property to the Landmark structure.
+    var isFeatured: Bool//추가한 다른 랜드마크 속성과 마찬가지로 Bool 은 이미 데이터에 존재하므로 새 속성을 선언
+    
+    //파일 에는 세 가지 문자열 값 중 하나를 사용하여 각 랜드마크에 대한 값이 이미 포함되어 있습니다 . 데이터 파일의 이름을 일치시키면 구조의 적합성에 따라 데이터를 로드할 수 있습니다.landmarkDatacategoryCodable
+    var category: Category
+        enum Category: String, CaseIterable, Codable {
+            case lakes = "Lakes"
+            case rivers = "Rivers"
+            case mountains = "Mountains"
+        }
+
+
     
     //Add an imageName property to read the name of the image from the data,
     // make the property private because users of the Landmarks structure care only about the image itself.
